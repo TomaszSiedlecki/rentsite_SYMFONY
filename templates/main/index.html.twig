@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+  <div class="container">
+  {% for product in name %}
+      <li>{{ product.name }}</li>
+  {% endfor %}
+  </div>
+{% endblock %}
