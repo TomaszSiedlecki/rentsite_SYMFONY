@@ -17,9 +17,13 @@
     {% if is_granted('ROLE_USER') %}
           <span class="navbar-brand mb-0 h1"> <a class="logout" href="{{ path('logout')}}">WYLOGUJ</a> </span>
     {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+          <span class="navbar-brand mb-0 h1"> <a class="logout" href="/">PANEL ADMINISTRATORA</a> </span>
+    {% endif %}
 
   </div>
 </nav>
+
 <section class="text-center pt-5">
   <div class="signin">
   {% block body %}{% endblock %}

@@ -2,9 +2,63 @@
 
 
 {% block body %}
-  <div class="container">
-  {% for product in name %}
-      <li>{{ product.name }}</li>
-  {% endfor %}
+  <div class="container-fluid">
+    <form action="{{ path('search') }}" method="POST">
+      <div class="row pb-4">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Wybierz kategorie</label>
+              <select name="c_name" class="form-control" id="category">
+              {% for cat in category %}
+                <option name="c_name" value="{{ cat.name }}" >{{ cat.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Wybierz magazyn</label>
+              <select name="s_name" class="form-control" id="stock">
+              {% for stock in stocks %}
+                <option value="{{ stock.name }}">{{ stock.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Dostępność</label>
+            <select name="av" class="form-control" id="available">
+              <option name="one" value="1">Dostępny</option>
+              <option name="zero" value="0">Niedostępny</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn my-btn">Wyszukaj</button>
+    </form>
+    <h1 class="pt-4">Wszystkie sprzęty</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nazwa</th>
+          <th scope="col">Magazyn</th>
+          <th scope="col">Opis</th>
+          <th scope="col">Dostępność</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.getStock().getName }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.state }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock %}

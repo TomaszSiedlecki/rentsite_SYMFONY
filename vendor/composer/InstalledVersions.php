@@ -484,6 +484,15 @@ private static $installed = array (
       ),
       'reference' => '394f3e4dc03ea2a5448aeedc9658c8b596b1d39f',
     ),
+    'symfony/form' => 
+    array (
+      'pretty_version' => 'v5.2.3',
+      'version' => '5.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4f3069be5fe46e72f3ec233fc61ac2828ea5b301',
+    ),
     'symfony/framework-bundle' => 
     array (
       'pretty_version' => 'v5.2.3',
@@ -520,6 +529,15 @@ private static $installed = array (
       ),
       'reference' => '89bac04f29e7b0b52f9fa6a4288ca7a8f90a1a05',
     ),
+    'symfony/intl' => 
+    array (
+      'pretty_version' => 'v5.2.3',
+      'version' => '5.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '930f17689729cc47d2ce18be21ed403bcbeeb6a9',
+    ),
     'symfony/maker-bundle' => 
     array (
       'pretty_version' => 'v1.29.1',
@@ -528,6 +546,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '313b5669a5370bf36cd34fa8f5b5bbbfa5fb8aa8',
+    ),
+    'symfony/options-resolver' => 
+    array (
+      'pretty_version' => 'v5.2.3',
+      'version' => '5.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5d0f633f9bbfcf7ec642a2b5037268e61b0a62ce',
     ),
     'symfony/polyfill-ctype' => 
     array (
@@ -551,6 +578,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '267a9adeb8ecb8071040a740930e077cdfb987af',
+    ),
+    'symfony/polyfill-intl-icu' => 
+    array (
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'af1842919c7e7364aaaa2798b29839e3ba168588',
     ),
     'symfony/polyfill-intl-normalizer' => 
     array (
