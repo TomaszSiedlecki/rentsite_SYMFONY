@@ -3931,10 +3931,11 @@
         <argument key="srepos" type="service" id="App\Repository\StockRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.hPyV8Qi" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.DBJKCeA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="repos" type="service" id="App\Repository\ProductRepository"/>
+        <argument key="repo" type="service" id="App\Repository\ProductRepository"/>
+        <argument key="user" type="service" id=".errored..service_locator.DBJKCeA.Symfony\Component\Security\Core\User\UserInterface"/>
       </argument>
     </service>
     <service id=".service_locator.fd.UL7I" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -3943,11 +3944,12 @@
         <argument key="utils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.ZbXJJjf" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.C.wF_pM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\MainController::index" type="service" id=".service_locator.2RmIwlS"/>
-        <argument key="App\Controller\MainController::showCriteria" type="service" id=".service_locator.hPyV8Qi"/>
+        <argument key="App\Controller\MainController::rentProduct" type="service" id=".service_locator.DBJKCeA"/>
+        <argument key="App\Controller\MainController::showCriteria" type="service" id=".service_locator.2RmIwlS"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="App\Kernel::loadRoutes" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
@@ -3956,7 +3958,8 @@
         <argument key="kernel::registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service" id=".service_locator.KfwZsne"/>
         <argument key="App\Controller\MainController:index" type="service" id=".service_locator.2RmIwlS"/>
-        <argument key="App\Controller\MainController:showCriteria" type="service" id=".service_locator.hPyV8Qi"/>
+        <argument key="App\Controller\MainController:rentProduct" type="service" id=".service_locator.DBJKCeA"/>
+        <argument key="App\Controller\MainController:showCriteria" type="service" id=".service_locator.2RmIwlS"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.fd.UL7I"/>
         <argument key="kernel:loadRoutes" type="service" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service" id=".service_locator.KfbR3DY"/>
@@ -4189,15 +4192,16 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.ZbXJJjf"/>
+      <argument type="service" id=".service_locator.C.wF_pM"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.ZbXJJjf"/>
+      <argument type="service" id=".service_locator.C.wF_pM"/>
     </service>
     <service id=".errored..service_locator.KfwZsne.Symfony\Component\HttpFoundation\Response" class="Symfony\Component\HttpFoundation\Response"/>
     <service id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface" class="Symfony\Component\Config\Loader\LoaderInterface"/>
+    <service id=".errored..service_locator.DBJKCeA.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
       <argument type="service" id=".service_locator.X5i6lo4"/>
@@ -4502,7 +4506,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ZbXJJjf"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.C.wF_pM"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~Sv4QuCH"/>

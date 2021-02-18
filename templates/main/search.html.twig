@@ -4,27 +4,17 @@
 {% block body %}
   <div class="container-fluid">
     <h1 class="pt-4">Wyniki wyszukiwania</h1>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nazwa</th>
-          <th scope="col">Magazyn</th>
-          <th scope="col">Opis</th>
-          <th scope="col">Dostępność</th>
-        </tr>
-      </thead>
+    <table class="table table-borderless">
+    
       <tbody>
         {% for product in products  %}
-          {% if (product.getStock().getName) == stocks and (product.getCategory.getName) == category and product.state == av  %}
-            <tr>
-                <th scope="row">{{ product.id }}</th>
-                <td>{{ product.name }}</td>
-                <td>{{ product.getStock().getName }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.state }}</td>
-            </tr>
-          {% endif %}
+          <tr>
+              <th scope="row">{{ product.id }}</th>
+              <td>{{ product.name }}</td>
+              <td>{{ product.getStock().getName }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.state }}</td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>

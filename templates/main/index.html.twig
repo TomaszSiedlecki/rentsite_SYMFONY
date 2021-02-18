@@ -38,27 +38,28 @@
       <button type="submit" class="btn my-btn">Wyszukaj</button>
     </form>
     <h1 class="pt-4">Wszystkie sprzęty</h1>
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nazwa</th>
-          <th scope="col">Magazyn</th>
-          <th scope="col">Opis</th>
-          <th scope="col">Dostępność</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for product in products %}
-        <tr>
-            <th scope="row">{{ product.id }}</th>
-            <td>{{ product.name }}</td>
-            <td>{{ product.getStock().getName }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.state }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-borderless">
+
+        <tbody>
+          {% for product in products %}
+          <tr>
+              <th scope="row">{{ product.id }}</th>
+              <td>{{ product.name }}</td>
+              <td>{{ product.getStock().getName }}</td>
+              {% if product.state == 1 %}
+                  <td><form action="{{ path('rent') }}" method="POST"><button name="rent" value="{{ product.id }} "type="submit" class="btn btn-link">WYPOŻYCZ</button></form></td>
+              {% endif %}
+              {% if product.state == 0 %}
+                {% if product.uid %}
+                  <td><span style="color:red">ZAREZERWOWANY</span></td> <td><b>{{product.getUid().getUsername}}</td>
+                {% endif %}
+              {% endif %}
+              <td>{{ product.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 {% endblock %}

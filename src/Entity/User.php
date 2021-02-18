@@ -5,7 +5,8 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -38,6 +39,11 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="json")
      */
     private $roles = [];
+
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="user", orphanRemoval=true)
+    */
+    private $uid;
 
     public function getId(): ?int
     {
@@ -111,5 +117,33 @@ class User implements UserInterface, \Serializable
         $this->password,
         $this->roles
       ) = unserialize($string, ['allowed_classes'=> false]);
+    }
+    /**
+     * @return Collection|Product[]
+    */
+    public function getUid(): Collection
+    {
+        return $this->uid;
+    }
+
+    public function addUid(Product $uid): self
+    {
+        if (!$this->uid->contains($uid)) {
+            $this->uid[] = $uid;
+            $uid->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUid(Product $uid): self
+    {
+        if ($this->uid->removeElement($uid)) {
+            // set the owning side to null (unless already changed)
+            if ($uid->getUser() === $this) {
+                $uid->setUser(null);
+            }
+        }
+        return $this;
     }
 }

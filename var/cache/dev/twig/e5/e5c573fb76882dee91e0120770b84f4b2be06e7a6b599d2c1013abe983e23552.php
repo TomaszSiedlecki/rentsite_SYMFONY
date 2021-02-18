@@ -75,40 +75,34 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
         $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 18, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
             // line 19
-            echo "          ";
-            if ((((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 19), "getName", [], "any", false, false, false, 19), (isset($context["stocks"]) || array_key_exists("stocks", $context) ? $context["stocks"] : (function () { throw new RuntimeError('Variable "stocks" does not exist.', 19, $this->source); })()))) && (0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getCategory", [], "any", false, false, false, 19), "getName", [], "any", false, false, false, 19), (isset($context["category"]) || array_key_exists("category", $context) ? $context["category"] : (function () { throw new RuntimeError('Variable "category" does not exist.', 19, $this->source); })())))) && (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 19), (isset($context["av"]) || array_key_exists("av", $context) ? $context["av"] : (function () { throw new RuntimeError('Variable "av" does not exist.', 19, $this->source); })()))))) {
-                // line 20
-                echo "            <tr>
-                <th scope=\"row\">";
-                // line 21
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 21), "html", null, true);
-                echo "</th>
-                <td>";
-                // line 22
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 22), "html", null, true);
-                echo "</td>
-                <td>";
-                // line 23
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 23), "getName", [], "any", false, false, false, 23), "html", null, true);
-                echo "</td>
-                <td>";
-                // line 24
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 24), "html", null, true);
-                echo "</td>
-                <td>";
-                // line 25
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 25), "html", null, true);
-                echo "</td>
-            </tr>
-          ";
-            }
-            // line 28
-            echo "        ";
+            echo "          <tr>
+              <th scope=\"row\">";
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 20), "html", null, true);
+            echo "</th>
+              <td>";
+            // line 21
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 21), "html", null, true);
+            echo "</td>
+              <td>";
+            // line 22
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 22), "getName", [], "any", false, false, false, 22), "html", null, true);
+            echo "</td>
+              <td>";
+            // line 23
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 23), "html", null, true);
+            echo "</td>
+              <td>";
+            // line 24
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 24), "html", null, true);
+            echo "</td>
+          </tr>
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 27
         echo "      </tbody>
     </table>
   </div>
@@ -130,7 +124,7 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
 
     public function getDebugInfo()
     {
-        return array (  112 => 29,  106 => 28,  100 => 25,  96 => 24,  92 => 23,  88 => 22,  84 => 21,  81 => 20,  78 => 19,  74 => 18,  59 => 5,  52 => 4,  35 => 1,);
+        return array (  106 => 27,  97 => 24,  93 => 23,  89 => 22,  85 => 21,  81 => 20,  78 => 19,  74 => 18,  59 => 5,  52 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -153,15 +147,13 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
       </thead>
       <tbody>
         {% for product in products  %}
-          {% if (product.getStock().getName) == stocks and (product.getCategory.getName) == category and product.state == av  %}
-            <tr>
-                <th scope=\"row\">{{ product.id }}</th>
-                <td>{{ product.name }}</td>
-                <td>{{ product.getStock().getName }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.state }}</td>
-            </tr>
-          {% endif %}
+          <tr>
+              <th scope=\"row\">{{ product.id }}</th>
+              <td>{{ product.name }}</td>
+              <td>{{ product.getStock().getName }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.state }}</td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>

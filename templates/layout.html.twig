@@ -13,7 +13,7 @@
 
 <nav class="navbar navbar-light cl-light">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1 breeze"><img class="logo" src="/images/logo.png" alt="logo"></></span>
+    <a class="navbar-brand mb-0 h1 breeze" href="{{ path('login')}}"><img class="logo" src="/images/logo.png" alt="logo"></></a>
     {% if is_granted('ROLE_USER') %}
           <span class="navbar-brand mb-0 h1"> <a class="logout" href="{{ path('logout')}}">WYLOGUJ</a> </span>
     {% endif %}

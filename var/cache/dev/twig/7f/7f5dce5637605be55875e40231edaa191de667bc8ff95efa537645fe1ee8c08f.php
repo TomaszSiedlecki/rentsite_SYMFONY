@@ -56,7 +56,10 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
 
 <nav class=\"navbar navbar-light cl-light\">
   <div class=\"container-fluid\">
-    <span class=\"navbar-brand mb-0 h1 breeze\"><img class=\"logo\" src=\"/images/logo.png\" alt=\"logo\"></></span>
+    <a class=\"navbar-brand mb-0 h1 breeze\" href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
+        echo "\"><img class=\"logo\" src=\"/images/logo.png\" alt=\"logo\"></></a>
     ";
         // line 17
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_USER")) {
@@ -121,7 +124,7 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
 
     public function getDebugInfo()
     {
-        return array (  101 => 29,  87 => 30,  85 => 29,  77 => 23,  73 => 21,  70 => 20,  64 => 18,  62 => 17,  49 => 7,  41 => 1,);
+        return array (  104 => 29,  90 => 30,  88 => 29,  80 => 23,  76 => 21,  73 => 20,  67 => 18,  65 => 17,  61 => 16,  49 => 7,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -141,7 +144,7 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
 
 <nav class=\"navbar navbar-light cl-light\">
   <div class=\"container-fluid\">
-    <span class=\"navbar-brand mb-0 h1 breeze\"><img class=\"logo\" src=\"/images/logo.png\" alt=\"logo\"></></span>
+    <a class=\"navbar-brand mb-0 h1 breeze\" href=\"{{ path('login')}}\"><img class=\"logo\" src=\"/images/logo.png\" alt=\"logo\"></></a>
     {% if is_granted('ROLE_USER') %}
           <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"{{ path('logout')}}\">WYLOGUJ</a> </span>
     {% endif %}

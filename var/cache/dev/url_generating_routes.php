@@ -6,6 +6,7 @@ return [
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
     '' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/']], [], []],
     'search' => [[], ['_controller' => 'App\\Controller\\MainController::showCriteria'], [], [['text', '/search']], [], []],
+    'rent' => [[], ['_controller' => 'App\\Controller\\MainController::rentProduct'], [], [['text', '/rent']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

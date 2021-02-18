@@ -40,9 +40,15 @@ class Product
     private $description;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="integer")
      */
     private $state;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="uid")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $uid;
 
     public function getId(): ?int
     {
@@ -102,10 +108,27 @@ class Product
         return $this->state;
     }
 
-    public function setState(bool $state): self
+    public function setState(int $state): self
     {
-        $this->state = $state;
+        if($state == 1)
+        {
+            $this->state = 1;
+        }
+        elseif ($state == 0)
+        {
+            $this->state = 0;
+        }
+        return $this;
+    }
 
+    public function getUid(): ?User
+    {
+        return $this->uid;
+    }
+
+    public function setUid(?User $user): self
+    {
+        $this->uid = $user;
         return $this;
     }
 }

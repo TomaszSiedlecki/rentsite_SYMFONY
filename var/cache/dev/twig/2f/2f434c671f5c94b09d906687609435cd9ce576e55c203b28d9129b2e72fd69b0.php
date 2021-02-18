@@ -123,53 +123,69 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
       <button type=\"submit\" class=\"btn my-btn\">Wyszukaj</button>
     </form>
     <h1 class=\"pt-4\">Wszystkie sprzęty</h1>
-    <table class=\"table\">
-      <thead class=\"thead-dark\">
-        <tr>
-          <th scope=\"col\">#</th>
-          <th scope=\"col\">Nazwa</th>
-          <th scope=\"col\">Magazyn</th>
-          <th scope=\"col\">Opis</th>
-          <th scope=\"col\">Dostępność</th>
-        </tr>
-      </thead>
-      <tbody>
-        ";
-        // line 52
+    <div class=\"table-responsive\">
+      <table class=\"table table-borderless\">
+
+        <tbody>
+          ";
+        // line 45
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 52, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 45, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 53
-            echo "        <tr>
-            <th scope=\"row\">";
-            // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 54), "html", null, true);
+            // line 46
+            echo "          <tr>
+              <th scope=\"row\">";
+            // line 47
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 47), "html", null, true);
             echo "</th>
-            <td>";
-            // line 55
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 55), "html", null, true);
+              <td>";
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 48), "html", null, true);
             echo "</td>
-            <td>";
-            // line 56
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 56), "getName", [], "any", false, false, false, 56), "html", null, true);
+              <td>";
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 49), "getName", [], "any", false, false, false, 49), "html", null, true);
             echo "</td>
-            <td>";
-            // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 57), "html", null, true);
-            echo "</td>
-            <td>";
+              ";
+            // line 50
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 50), 1))) {
+                // line 51
+                echo "                  <td><form action=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("rent");
+                echo "\" method=\"POST\"><button name=\"rent\" value=\"";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 51), "html", null, true);
+                echo " \"type=\"submit\" class=\"btn btn-link\">WYPOŻYCZ</button></form></td>
+              ";
+            }
+            // line 53
+            echo "              ";
+            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 53), 0))) {
+                // line 54
+                echo "                ";
+                if (twig_get_attribute($this->env, $this->source, $context["product"], "uid", [], "any", false, false, false, 54)) {
+                    // line 55
+                    echo "                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td> <td><b>";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getUid", [], "method", false, false, false, 55), "getUsername", [], "any", false, false, false, 55), "html", null, true);
+                    echo "</td>
+                ";
+                }
+                // line 57
+                echo "              ";
+            }
             // line 58
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 58), "html", null, true);
+            echo "              <td>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 58), "html", null, true);
             echo "</td>
-        </tr>
-        ";
+          </tr>
+          ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 61
-        echo "      </tbody>
-    </table>
+        echo "        </tbody>
+      </table>
+    </div>
   </div>
 ";
         
@@ -189,7 +205,7 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
 
     public function getDebugInfo()
     {
-        return array (  171 => 61,  162 => 58,  158 => 57,  154 => 56,  150 => 55,  146 => 54,  143 => 53,  139 => 52,  110 => 25,  99 => 23,  95 => 22,  86 => 15,  75 => 13,  71 => 12,  62 => 6,  59 => 5,  52 => 4,  35 => 1,);
+        return array (  186 => 61,  176 => 58,  173 => 57,  167 => 55,  164 => 54,  161 => 53,  153 => 51,  151 => 50,  147 => 49,  143 => 48,  139 => 47,  136 => 46,  132 => 45,  110 => 25,  99 => 23,  95 => 22,  86 => 15,  75 => 13,  71 => 12,  62 => 6,  59 => 5,  52 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -234,28 +250,29 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
       <button type=\"submit\" class=\"btn my-btn\">Wyszukaj</button>
     </form>
     <h1 class=\"pt-4\">Wszystkie sprzęty</h1>
-    <table class=\"table\">
-      <thead class=\"thead-dark\">
-        <tr>
-          <th scope=\"col\">#</th>
-          <th scope=\"col\">Nazwa</th>
-          <th scope=\"col\">Magazyn</th>
-          <th scope=\"col\">Opis</th>
-          <th scope=\"col\">Dostępność</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for product in products %}
-        <tr>
-            <th scope=\"row\">{{ product.id }}</th>
-            <td>{{ product.name }}</td>
-            <td>{{ product.getStock().getName }}</td>
-            <td>{{ product.description }}</td>
-            <td>{{ product.state }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class=\"table-responsive\">
+      <table class=\"table table-borderless\">
+
+        <tbody>
+          {% for product in products %}
+          <tr>
+              <th scope=\"row\">{{ product.id }}</th>
+              <td>{{ product.name }}</td>
+              <td>{{ product.getStock().getName }}</td>
+              {% if product.state == 1 %}
+                  <td><form action=\"{{ path('rent') }}\" method=\"POST\"><button name=\"rent\" value=\"{{ product.id }} \"type=\"submit\" class=\"btn btn-link\">WYPOŻYCZ</button></form></td>
+              {% endif %}
+              {% if product.state == 0 %}
+                {% if product.uid %}
+                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td> <td><b>{{product.getUid().getUsername}}</td>
+                {% endif %}
+              {% endif %}
+              <td>{{ product.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 {% endblock %}
 ", "main/index.html.twig", "/home/pi/rentsite/templates/main/index.html.twig");
