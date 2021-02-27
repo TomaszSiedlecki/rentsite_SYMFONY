@@ -159,22 +159,33 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
             }
             // line 53
             echo "              ";
-            if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 53), 0))) {
+            if (((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 53), 0)) && twig_get_attribute($this->env, $this->source, $context["product"], "uid", [], "any", false, false, false, 53))) {
                 // line 54
                 echo "                ";
-                if (twig_get_attribute($this->env, $this->source, $context["product"], "uid", [], "any", false, false, false, 54)) {
+                if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 54, $this->source); })()), "getUsername", [], "any", false, false, false, 54), twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getUid", [], "method", false, false, false, 54), "getUsername", [], "any", false, false, false, 54)))) {
                     // line 55
-                    echo "                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td> <td><b>";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getUid", [], "method", false, false, false, 55), "getUsername", [], "any", false, false, false, 55), "html", null, true);
-                    echo "</td>
+                    echo "                    <td><form action=\"";
+                    echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("return");
+                    echo "\" method=\"POST\"><button name=\"return\" value=\"";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 55), "html", null, true);
+                    echo " \"type=\"submit\" class=\"btn btn-link\">ZWRÓĆ</button></form></td>
+                ";
+                } else {
+                    // line 57
+                    echo "                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td>
                 ";
                 }
-                // line 57
-                echo "              ";
+                // line 59
+                echo "                <td><b>";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getUid", [], "method", false, false, false, 59), "getUsername", [], "any", false, false, false, 59), "html", null, true);
+                echo "</td>
+              ";
             }
-            // line 58
-            echo "              <td>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 58), "html", null, true);
+            // line 61
+            echo "
+              <td>";
+            // line 62
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 62), "html", null, true);
             echo "</td>
           </tr>
           ";
@@ -182,7 +193,7 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 61
+        // line 65
         echo "        </tbody>
       </table>
     </div>
@@ -205,7 +216,7 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
 
     public function getDebugInfo()
     {
-        return array (  186 => 61,  176 => 58,  173 => 57,  167 => 55,  164 => 54,  161 => 53,  153 => 51,  151 => 50,  147 => 49,  143 => 48,  139 => 47,  136 => 46,  132 => 45,  110 => 25,  99 => 23,  95 => 22,  86 => 15,  75 => 13,  71 => 12,  62 => 6,  59 => 5,  52 => 4,  35 => 1,);
+        return array (  197 => 65,  188 => 62,  185 => 61,  179 => 59,  175 => 57,  167 => 55,  164 => 54,  161 => 53,  153 => 51,  151 => 50,  147 => 49,  143 => 48,  139 => 47,  136 => 46,  132 => 45,  110 => 25,  99 => 23,  95 => 22,  86 => 15,  75 => 13,  71 => 12,  62 => 6,  59 => 5,  52 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -262,11 +273,15 @@ class __TwigTemplate_187967cf7a4fdcd8d2f9f9f67963c0074afd5930e4578f59bff112785b3
               {% if product.state == 1 %}
                   <td><form action=\"{{ path('rent') }}\" method=\"POST\"><button name=\"rent\" value=\"{{ product.id }} \"type=\"submit\" class=\"btn btn-link\">WYPOŻYCZ</button></form></td>
               {% endif %}
-              {% if product.state == 0 %}
-                {% if product.uid %}
-                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td> <td><b>{{product.getUid().getUsername}}</td>
+              {% if product.state == 0 and product.uid %}
+                {% if user.getUsername == product.getUid().getUsername %}
+                    <td><form action=\"{{ path('return') }}\" method=\"POST\"><button name=\"return\" value=\"{{ product.id }} \"type=\"submit\" class=\"btn btn-link\">ZWRÓĆ</button></form></td>
+                {% else  %}
+                  <td><span style=\"color:red\">ZAREZERWOWANY</span></td>
                 {% endif %}
+                <td><b>{{product.getUid().getUsername}}</td>
               {% endif %}
+
               <td>{{ product.description }}</td>
           </tr>
           {% endfor %}

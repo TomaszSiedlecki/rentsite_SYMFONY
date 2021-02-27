@@ -73,7 +73,9 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
         echo "    ";
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 21
-            echo "          <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"/\">PANEL ADMINISTRATORA</a> </span>
+            echo "          <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+            echo "\">PANEL ADMINISTRATORA</a> </span>
     ";
         }
         // line 23
@@ -124,7 +126,7 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
 
     public function getDebugInfo()
     {
-        return array (  104 => 29,  90 => 30,  88 => 29,  80 => 23,  76 => 21,  73 => 20,  67 => 18,  65 => 17,  61 => 16,  49 => 7,  41 => 1,);
+        return array (  106 => 29,  92 => 30,  90 => 29,  82 => 23,  76 => 21,  73 => 20,  67 => 18,  65 => 17,  61 => 16,  49 => 7,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -149,7 +151,7 @@ class __TwigTemplate_28c39bc81fefe1976331fbd0d264de820d77bfd97a231ec23963d5adce3
           <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"{{ path('logout')}}\">WYLOGUJ</a> </span>
     {% endif %}
     {% if is_granted('ROLE_ADMIN') %}
-          <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"/\">PANEL ADMINISTRATORA</a> </span>
+          <span class=\"navbar-brand mb-0 h1\"> <a class=\"logout\" href=\"{{ path('admin')}}\">PANEL ADMINISTRATORA</a> </span>
     {% endif %}
 
   </div>

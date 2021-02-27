@@ -7,6 +7,8 @@ return [
     '' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/']], [], []],
     'search' => [[], ['_controller' => 'App\\Controller\\MainController::showCriteria'], [], [['text', '/search']], [], []],
     'rent' => [[], ['_controller' => 'App\\Controller\\MainController::rentProduct'], [], [['text', '/rent']], [], []],
+    'return' => [[], ['_controller' => 'App\\Controller\\MainController::returnProduct'], [], [['text', '/return']], [], []],
+    'admin' => [[], ['_controller' => 'App\\Controller\\MainController::adminIndex'], [], [['text', '/admin']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

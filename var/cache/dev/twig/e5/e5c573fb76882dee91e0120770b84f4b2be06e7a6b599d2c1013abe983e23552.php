@@ -58,43 +58,35 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
         // line 5
         echo "  <div class=\"container-fluid\">
     <h1 class=\"pt-4\">Wyniki wyszukiwania</h1>
-    <table class=\"table\">
-      <thead class=\"thead-dark\">
-        <tr>
-          <th scope=\"col\">#</th>
-          <th scope=\"col\">Nazwa</th>
-          <th scope=\"col\">Magazyn</th>
-          <th scope=\"col\">Opis</th>
-          <th scope=\"col\">Dostępność</th>
-        </tr>
-      </thead>
+    <table class=\"table table-borderless\">
+    
       <tbody>
         ";
-        // line 18
+        // line 10
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 18, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 10, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 19
+            // line 11
             echo "          <tr>
               <th scope=\"row\">";
-            // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 20), "html", null, true);
+            // line 12
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 12), "html", null, true);
             echo "</th>
               <td>";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 21), "html", null, true);
+            // line 13
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 13), "html", null, true);
             echo "</td>
               <td>";
-            // line 22
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 22), "getName", [], "any", false, false, false, 22), "html", null, true);
+            // line 14
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["product"], "getStock", [], "method", false, false, false, 14), "getName", [], "any", false, false, false, 14), "html", null, true);
             echo "</td>
               <td>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 23), "html", null, true);
+            // line 15
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 15), "html", null, true);
             echo "</td>
               <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 24), "html", null, true);
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "state", [], "any", false, false, false, 16), "html", null, true);
             echo "</td>
           </tr>
         ";
@@ -102,7 +94,7 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
+        // line 19
         echo "      </tbody>
     </table>
   </div>
@@ -124,7 +116,7 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
 
     public function getDebugInfo()
     {
-        return array (  106 => 27,  97 => 24,  93 => 23,  89 => 22,  85 => 21,  81 => 20,  78 => 19,  74 => 18,  59 => 5,  52 => 4,  35 => 1,);
+        return array (  98 => 19,  89 => 16,  85 => 15,  81 => 14,  77 => 13,  73 => 12,  70 => 11,  66 => 10,  59 => 5,  52 => 4,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -135,16 +127,8 @@ class __TwigTemplate_f459ba27ab23d8d85f3f847977a5512b58b0bcc8c9487d9f3f37bb67a8b
 {% block body %}
   <div class=\"container-fluid\">
     <h1 class=\"pt-4\">Wyniki wyszukiwania</h1>
-    <table class=\"table\">
-      <thead class=\"thead-dark\">
-        <tr>
-          <th scope=\"col\">#</th>
-          <th scope=\"col\">Nazwa</th>
-          <th scope=\"col\">Magazyn</th>
-          <th scope=\"col\">Opis</th>
-          <th scope=\"col\">Dostępność</th>
-        </tr>
-      </thead>
+    <table class=\"table table-borderless\">
+    
       <tbody>
         {% for product in products  %}
           <tr>

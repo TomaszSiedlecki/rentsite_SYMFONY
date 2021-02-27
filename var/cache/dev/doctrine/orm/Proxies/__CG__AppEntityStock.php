@@ -246,4 +246,15 @@ class Stock extends \App\Entity\Stock implements \Doctrine\ORM\Proxy\Proxy
         return parent::removeSid($sid);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
+    }
+
 }

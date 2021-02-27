@@ -11,6 +11,8 @@ return [
         '/' => [[['_route' => '', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\MainController::showCriteria'], null, null, null, false, false, null]],
         '/rent' => [[['_route' => 'rent', '_controller' => 'App\\Controller\\MainController::rentProduct'], null, null, null, false, false, null]],
+        '/return' => [[['_route' => 'return', '_controller' => 'App\\Controller\\MainController::returnProduct'], null, null, null, false, false, null]],
+        '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\MainController::adminIndex'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],

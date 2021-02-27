@@ -50,11 +50,15 @@
               {% if product.state == 1 %}
                   <td><form action="{{ path('rent') }}" method="POST"><button name="rent" value="{{ product.id }} "type="submit" class="btn btn-link">WYPOŻYCZ</button></form></td>
               {% endif %}
-              {% if product.state == 0 %}
-                {% if product.uid %}
-                  <td><span style="color:red">ZAREZERWOWANY</span></td> <td><b>{{product.getUid().getUsername}}</td>
+              {% if product.state == 0 and product.uid %}
+                {% if user.getUsername == product.getUid().getUsername %}
+                    <td><form action="{{ path('return') }}" method="POST"><button name="return" value="{{ product.id }} "type="submit" class="btn btn-link">ZWRÓĆ</button></form></td>
+                {% else  %}
+                  <td><span style="color:red">ZAREZERWOWANY</span></td>
                 {% endif %}
+                <td><b>{{product.getUid().getUsername}}</td>
               {% endif %}
+
               <td>{{ product.description }}</td>
           </tr>
           {% endfor %}
